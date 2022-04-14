@@ -14,12 +14,11 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #57508f;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content:space-evenly;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -35,4 +34,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li:hover {
+  transform: scale(1.1);
+  transition: transform 0.25s;
+}
+
+h2 {
+  color: #443996;
+  text-shadow: 2px -1px #6f63c6;
 }
