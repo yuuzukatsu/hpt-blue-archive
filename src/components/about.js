@@ -1,29 +1,35 @@
 import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 
-import Hina from '../hina.png'
+import HinaMuter from "./hina";
 
 function About() {
     return(
         <section className="App-header" id="about">
             <div>
                 <div>
-                    <img className="App-logo" src={Hina} alt="" />
+                    <HinaMuter />
                 </div>
             </div>
-            <div>
+            <div dir="RTL" style={{alignSelf: 'flex-start', justifySelf: 'right'}}>
                 <ul>
                     <li>
                         <Link to="#" smooth>
                             Home
                         </Link>  
                     </li>
-                    <h2>About</h2>
-                    <li>
-                        <Link to="#contact" smooth>
-                            Contact
-                        </Link>  
-                    </li>
+                    <ul>
+                        <li>
+                            <h3>About</h3>    
+                        </li>
+                        <ul>
+                            <li>
+                                <Link to="#contact" smooth>
+                                    Contact
+                                </Link>  
+                            </li>
+                        </ul>
+                    </ul>
                 </ul>
             </div>
         </section>
