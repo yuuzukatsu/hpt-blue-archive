@@ -8,7 +8,7 @@ function About() {
         <section className="App-header" id="about">
             <div>
                 <div>
-                    <HinaMuter />
+                    <HinaMuter gambar='hoshino' />
                 </div>
             </div>
             <div dir="RTL" style={{alignSelf: 'flex-start', justifySelf: 'right'}}>
@@ -31,6 +31,8 @@ function About() {
                         </ul>
                     </ul>
                 </ul>
+                <p>We are part of Happy Trigger Blue Archive "E-Sport" division</p>
+                <p>Come visit our main circle in <a href='https://happytrigger.net' target="_blank" rel="noreferrer" >https://happytrigger.net</a> </p>
             </div>
         </section>
     )

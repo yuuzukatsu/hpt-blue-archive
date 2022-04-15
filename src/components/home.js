@@ -1,9 +1,22 @@
-import React from "react";
+import React,{useState} from "react";
 import { HashLink as Link } from "react-router-hash-link";
 
 import HinaMuter from "./hina";
 
-function Home() {
+function Home(props) {
+
+    const [count, setCount] = useState({
+        nama : "You",
+        jum : 0
+    });
+
+    const klik = () => {
+        setCount({
+            ...count,
+            jum : count.jum+1
+        })
+    }
+
     return(
         <header className="App-header" id="">
             <div className="big-li">
@@ -28,7 +41,9 @@ function Home() {
                 </ul>    
             </div>
             <div>
-                <HinaMuter />
+                <HinaMuter gambar='tsurugi' />
+                <p>{count.nama} clicked {count.jum} times</p>
+                <button onClick={klik}>Click</button>
             </div>
         </header>
     )

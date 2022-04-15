@@ -28,7 +28,7 @@ function Contact() {
                 </ul>
             </div>
             <div>
-                <HinaMuter />
+                <HinaMuter gambar='hina'/>
             </div>
         </section>
     )

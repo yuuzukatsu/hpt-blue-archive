@@ -14,7 +14,7 @@ const trigger = Math.floor(Math.random() * 2)
 let duration
 
 if (trigger === 1) {
-    duration = 0.1
+    duration = 1
 } else {
     duration = 20
 }
