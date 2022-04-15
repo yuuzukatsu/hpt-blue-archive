@@ -1,7 +1,8 @@
+import { Button } from "@mui/material";
 import React,{useState} from "react";
 import { HashLink as Link } from "react-router-hash-link";
 
-import HinaMuter from "./hina";
+import Muter from "./image";
 
 function Home(props) {
 
@@ -32,8 +33,8 @@ function Home(props) {
                         </li>
                         <ul>
                             <li>
-                                <Link to="#contact" smooth>
-                                    Contact
+                                <Link to="#image-randomizer" smooth>
+                                    Image randomizer
                                 </Link>  
                             </li>
                         </ul> 
@@ -41,9 +42,11 @@ function Home(props) {
                 </ul>    
             </div>
             <div>
-                <HinaMuter gambar='tsurugi' />
-                <p>{count.nama} clicked {count.jum} times</p>
-                <button onClick={klik}>Click</button>
+                <Muter gambar='tsurugi' />
+                <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', paddingTop: 100}}>
+                    <p>{count.nama} clicked <span style={{color:"#db59e2"}}>{count.jum}</span> times!</p>
+                    <Button variant="contained" color="secondary" onClick={klik}>Click!</Button>
+                </div>
             </div>
         </header>
     )

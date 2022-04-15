@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import Home from "./components/home";
 import About from './components/about';
-import Contact from './components/contact'
+import ImageRandomizer from './components/image-randomizer'
 
 import './App.css'
 
@@ -13,7 +13,7 @@ function App() {
       <div>
         <Home />
         <About />
-        <Contact />
+        <ImageRandomizer />
       </div>
     </Router>
   );

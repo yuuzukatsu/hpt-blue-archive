@@ -1,9 +1,9 @@
-import Imej from './stylehina'
+import Imej from './style-image'
 import Hina from '../image/hina.png'
 import Hoshino from '../image/hoshino.png'
 import Tsurugi from '../image/tsurugi.png'
 
-function HinaMuter(props) {
+function Muter(props) {
     switch(props.gambar){
         case 'hina':
             return (
@@ -28,4 +28,4 @@ function HinaMuter(props) {
     }
 }
 
-export default HinaMuter
+export default Muter
