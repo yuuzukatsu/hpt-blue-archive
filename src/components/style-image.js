@@ -9,18 +9,8 @@ const muter = keyframes`
     }
 `
 
-const trigger = Math.floor(Math.random() * 2)
-
-let duration
-
-if (trigger === 1) {
-    duration = 1.5
-} else {
-    duration = 15
-}
-
 const Imej = styled.img`
-    animation: ${muter} infinite ${duration}s reverse linear
+    animation: ${muter} infinite ${props => props.chance === 1 ? 1.5 : 15}s reverse linear
 `
 
 export default Imej

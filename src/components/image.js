@@ -15,49 +15,49 @@ function Muter(props) {
         case 'Hina':
             return (
                 <div>
-                    <Imej className="App-logo" src={Hina} alt=""/>
+                    <Imej className="App-logo" chance={props.chance} src={Hina} alt=""/>
                 </div>
             )
         case 'Tsurugi':
             return (
                 <div>
-                    <Imej className="App-logo" src={Tsurugi} alt=""/>
+                    <Imej className="App-logo" chance={props.chance} src={Tsurugi} alt=""/>
                 </div>
             )
         case 'Hoshino':
             return (
                 <div>
-                    <Imej className="App-logo" src={Hoshino} alt=""/>
+                    <Imej className="App-logo" chance={props.chance} src={Hoshino} alt=""/>
                 </div>
             )
         case 'Arona':
             return (
                 <div>
-                    <Imej className="App-logo" src={Arona} alt=""/>
+                    <Imej className="App-logo" chance={props.chance} src={Arona} alt=""/>
                 </div>
             )
         case 'Aru':
             return (
                 <div>
-                    <Imej className="App-logo" src={Aru} alt=""/>
+                    <Imej className="App-logo" chance={props.chance} src={Aru} alt=""/>
                 </div>
             )
         case 'Fuuka':
             return (
                 <div>
-                    <Imej className="App-logo" src={Fuuka} alt=""/>
+                    <Imej className="App-logo" chance={props.chance} src={Fuuka} alt=""/>
                 </div>
             )
         case 'Hifumi':
             return (
                 <div>
-                    <Imej className="App-logo" src={Hifumi} alt=""/>
+                    <Imej className="App-logo" chance={props.chance} src={Hifumi} alt=""/>
                 </div>
             )
         case 'Momoi':
             return (
                 <div>
-                    <Imej className="App-logo" src={Momoi} alt=""/>
+                    <Imej className="App-logo" chance={props.chance} src={Momoi} alt=""/>
                 </div>
             )
         default:
