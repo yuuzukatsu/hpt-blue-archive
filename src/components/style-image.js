@@ -14,9 +14,9 @@ const trigger = Math.floor(Math.random() * 2)
 let duration
 
 if (trigger === 1) {
-    duration = 1
+    duration = 1.5
 } else {
-    duration = 20
+    duration = 15
 }
 
 const Imej = styled.img`

@@ -5,26 +5,15 @@ import { Button } from "@mui/material";
 import Muter from "./image";
 
 function ImageRandomizer() {
-    const images = ['hina', 'tsurugi', 'hoshino']
-    const [randomized, setRandomized] = useState('hina')
-    const [result, setResult] = useState('hoshino')
+    const images = ['Hina', 'Tsurugi', 'Hoshino', 'Arona', 'Aru', 'Fuuka', 'Hifumi' ,'Momoi']
+    const [randomized, setRandomized] = useState('Hina')
 
-    function looping() {
+    const randomImage = () => {
         const random = Math.floor(Math.random() * images.length)
-        const loopResult = images[random]
-        setResult(loopResult)
+        setRandomized(images[random])
     }
 
-    function capitalize(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
-
-    const handleClick = () => {
-        looping()
-        setRandomized(result)
-    }
-
-    console.log(randomized);
+    //console.log(randomized);
     return(
         <section className="App-header" id="image-randomizer">
             <div style={{alignSelf: 'flex-start', justifySelf: 'left'}}>
@@ -47,11 +36,20 @@ function ImageRandomizer() {
                         </ul>
                     </ul>
                 </ul>
-                <div style={{display:'flex', flexDirection:'column', justifyContent:'center',alignItems:'center', height:525}}>
-                    <Button variant="contained" color="secondary" onClick={handleClick}>
+                <div style={
+                {
+                    display:'flex', 
+                    flexDirection:'column', 
+                    justifyContent:'center',
+                    alignItems:'center', 
+                    height:525
+                }}>
+
+                    <Button variant="contained" color="secondary" onClick={randomImage}>
                         Click to randomize image!
                     </Button>
-                    <h4>Current image : <span style={{color:"#db59e2"}}>{capitalize(randomized)}</span></h4>
+
+                    <h4>Current image : <span style={{color:"#db59e2"}}>{randomized}</span></h4>
                 </div>
             </div>
             <div>

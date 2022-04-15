@@ -4,7 +4,7 @@ import { HashLink as Link } from "react-router-hash-link";
 
 import Muter from "./image";
 
-function Home(props) {
+function Home() {
 
     const [count, setCount] = useState({
         nama : "You",
@@ -42,9 +42,19 @@ function Home(props) {
                 </ul>    
             </div>
             <div>
-                <Muter gambar='tsurugi' />
-                <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', paddingTop: 100}}>
-                    <p>{count.nama} clicked <span style={{color:"#db59e2"}}>{count.jum}</span> times!</p>
+                <Muter gambar='Tsurugi' />
+                <div style={
+                {
+                    display:'flex', 
+                    flexDirection:'column', 
+                    justifyContent:'center', 
+                    alignItems:'center', 
+                    paddingTop: 100
+                }}>
+                    <p>
+                        {count.nama} clicked <span style={{color:"#db59e2"}}>{count.jum}</span> times!
+                    </p>
+                    
                     <Button variant="contained" color="secondary" onClick={klik}>Click!</Button>
                 </div>
             </div>

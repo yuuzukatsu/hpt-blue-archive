@@ -11,7 +11,7 @@ function About() {
         <section className="App-header" id="about">
             <div>
                 <div>
-                    <Muter gambar='hoshino' />
+                    <Muter gambar='Hoshino' />
                 </div>
             </div>
             <div dir="RTL" style={{alignSelf: 'flex-start', justifySelf: 'right'}}>
