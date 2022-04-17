@@ -7,10 +7,12 @@ import Muter from "./image";
 function ImageRandomizer() {
     const images = ['Hina', 'Tsurugi', 'Hoshino', 'Arona', 'Aru', 'Fuuka', 'Hifumi' ,'Momoi']
     const [randomized, setRandomized] = useState('Hina')
+    const [wuzzWuzz, setRNG] = useState(Math.floor(Math.random() * 2))
 
     const randomImage = () => {
         const random = Math.floor(Math.random() * images.length)
         setRandomized(images[random])
+        setRNG(Math.floor(Math.random() * 2))
     }
 
     //console.log(randomized);
@@ -53,7 +55,7 @@ function ImageRandomizer() {
                 </div>
             </div>
             <div>
-                <Muter gambar={randomized}/>
+                <Muter gambar={randomized} chance={wuzzWuzz}/>
             </div>
         </section>
     )
