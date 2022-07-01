@@ -1,23 +1,13 @@
-import { Button } from "@mui/material";
-import React,{useState} from "react";
+import React, {useContext} from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import Login from './login.js'
 
 import Muter from "./image";
 
+import { authContext } from '../App.js';
+
 function Home() {
-
-    const [count, setCount] = useState({
-        nama : "You",
-        jum : 0
-    });
-
-    const klik = () => {
-        setCount({
-            ...count,
-            jum : count.jum+1
-        })
-    }
-
+    const auth = useContext(authContext);
     return(
         <header className="App-header" id="">
             <div className="big-li">
@@ -37,6 +27,19 @@ function Home() {
                                     Image randomizer
                                 </Link>  
                             </li>
+                            {
+                                auth.user ? (
+                                <ul>
+                                    <li>
+                                        <Link to="#raid-log" smooth>
+                                            Raid Log
+                                        </Link>  
+                                    </li>
+                                </ul>
+                                ) : (
+                                <></>
+                                )
+                            }
                         </ul> 
                     </ul>
                 </ul>    
@@ -51,12 +54,9 @@ function Home() {
                     alignItems:'center', 
                     paddingTop: 100
                 }}>
-                    <p>
-                        {count.nama} clicked <span style={{color:"#db59e2"}}>{count.jum}</span> times!
-                    </p>
-                    
-                    <Button variant="contained" color="secondary" onClick={klik}>Click!</Button>
+                
                 </div>
+                <Login />
             </div>
         </header>
     )

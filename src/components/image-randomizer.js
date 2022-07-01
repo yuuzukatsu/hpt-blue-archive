@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useContext }  from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { Button } from "@mui/material";
 
 import Muter from "./image";
 
+import { authContext } from '../App.js';
+
 function ImageRandomizer() {
+    const auth = useContext(authContext);
     const images = ['Hina', 'Tsurugi', 'Hoshino', 'Arona', 'Aru', 'Fuuka', 'Hifumi' ,'Momoi']
     const [randomized, setRandomized] = useState('Hina')
     const [wuzzWuzz, setRNG] = useState(Math.floor(Math.random() * 2))
@@ -35,6 +38,19 @@ function ImageRandomizer() {
                             <li>
                                 <h3>Image randomizer</h3>    
                             </li>
+                            {
+                                auth.user ? (
+                                <ul>
+                                    <li>
+                                        <Link to="#raid-log" smooth>
+                                            Raid Log
+                                        </Link>  
+                                    </li>
+                                </ul>
+                                ) : (
+                                <></>
+                                )
+                            }
                         </ul>
                     </ul>
                 </ul>

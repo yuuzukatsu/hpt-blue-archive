@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { HashLink as Link } from "react-router-hash-link";
 
 import Container from "@mui/material/Container";
@@ -6,7 +6,10 @@ import Card from "@mui/material/Card";
 
 import Muter from "./image";
 
+import { authContext } from '../App.js';
+
 function About() {
+    const auth = useContext(authContext);
     return(
         <section className="App-header" id="about">
             <div>
@@ -31,6 +34,19 @@ function About() {
                                     Image randomizer
                                 </Link>  
                             </li>
+                            {
+                                auth.user ? (
+                                <ul>
+                                    <li>
+                                        <Link to="#raid-log" smooth>
+                                            Raid Log
+                                        </Link>  
+                                    </li>
+                                </ul>
+                                ) : (
+                                <></>
+                                )
+                            }
                         </ul>
                     </ul>
                 </ul>
