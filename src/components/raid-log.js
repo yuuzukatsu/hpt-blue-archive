@@ -41,7 +41,7 @@ function Raid() {
         let lineup = prompt("Lineup :")
         let name = auth.user.name;
         
-        let postinsert = await fetch(url, {
+        let status = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', 
@@ -58,66 +58,77 @@ function Raid() {
           .then(res => res.json())
           .then(hasil => {return hasil});
 
-        alert(postinsert.message)
+        alert(status.message)
         fetchData();
     }
 
-    const [updateData, getUpdateData] = useState([])
-    const updateRaid = async(event) =>{
+    const updateRaid = async (event) => {
         event.preventDefault();
-        let id = event.target.id.value
-
+        let id = event.target.id.value;
+    
         //Take Current Data to Update
-        let dataUpdate = await fetch(url+id, {
-            method: 'GET',
+        fetch(url + id, {
+            method: "GET",
             headers: {
-                'Content-Type': 'application/json', 
-                'key':  key
-            }
+                "Content-Type": "application/json",
+                key: key,
+            },
         })
-          .then(res => res.json())
-          .then((response) => {
-            console.log(response)
-            getUpdateData(response)
-        })
+            .then((res) => res.json())
+            .then(async (response) => {
+    
+                //START UPDATE
+                response.map(async (item, i) => {
+    
+                    let raid_boss = prompt("Raid Boss :", item.raid_boss);
+                    let rank = prompt("Rank :", item.rank);
+                    let point = prompt("Point :", item.point);
+                    let lineup = prompt("Lineup :", item.lineup);
+                    let name = auth.user.name;
+    
+                    fetch(url, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json",
+                            key: key,
+                        },
+                        body: JSON.stringify({
+                            id: id,
+                            raid_boss: raid_boss,
+                            rank: rank,
+                            point: point,
+                            lineup: lineup,
+                            member: name,
+                        }),
+                    })
+                        .then((res) => res.json())
+                        .then((hasil) => {
+                            alert(hasil.message)
+                            fetchData()
+                            return hasil
+                        });
+                });
+            });
+    };
 
-        console.log("===========")
-        console.log(dataUpdate.json())
-        //START UPDATE
-        updateData.map((item, i) => (
-            alert(item.raid_boss)
-        ))
-        /*
-        let raid_boss = prompt("Raid Boss :", item.raid_boss)
-        let rank = prompt("Rank :", item.rank)
-        let point = prompt("Point :", item.point)
-        let lineup = prompt("Lineup :", item.lineup)
-        let name = auth.user.name;
-
-        let statusUpdate = await fetch(url, {
-            method: 'PATCH',
+    const deleteRaid = async(event) =>{
+        event.preventDefault();
+        fetch(url, {
+            method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json', 
                 'key':  key
             },
             body: JSON.stringify({
-                "id": id,
-                "raid_boss": raid_boss,
-                "rank": rank,
-                "point": point,
-                "lineup": lineup,
-                "member": name
+                "id": event.target.id.value
             })
-        })
-          .then(res => res.json())
-          .then(console.log)
-          .then(hasil => {return hasil});
-
-        alert(statusUpdate.message)
-        fetchData();*/
-    }
-
-    const deleteRaid = async(event) =>{
+            })
+            .then(res => res.json())
+            .then(hasil => {
+                alert(hasil.message)
+                fetchData();
+                return hasil
+            });
     }
 
     return(
@@ -178,14 +189,6 @@ function Raid() {
                                     </TableCell>
                                 </TableRow>
                             ))}
-                            <TableRow>
-                                <TableCell>Binah</TableCell>
-                                <TableCell>1356</TableCell>
-                                <TableCell>13450000</TableCell>
-                                <TableCell>Cherino, Akane, Maki, S.Azusa, Ako, Karin</TableCell>
-                                <TableCell>Yz</TableCell>
-                                <TableCell>Edit, Delete</TableCell>
-                            </TableRow>
 
                             {/*INSERT START HERE*/}
                             <TableRow>
