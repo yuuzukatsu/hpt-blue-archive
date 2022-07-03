@@ -13,29 +13,32 @@ function Login() {
         event.preventDefault();
         let u = event.target.username.value;
         let p = event.target.password.value;
-        alert("tes Username:"+u+" Password:"+p);
 
-        let cek_login = await fetch('https://dummyjson.com/auth/login', {
+        let cek_login = await fetch('https://api-hpt-blue-archive.herokuapp.com/auth/login', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json', 
+                'key': '22bc653308b95d5c0117528df678a7d1' 
+            },
             body: JSON.stringify({
-              
-              username: u,
-              password: p,
-              // expiresInMins: 60, // optional
+                "username": u,
+                "password": p
             })
           })
           .then(res => res.json())
           .then(hasil => {return hasil});
-        
-        if(cek_login.username === undefined){
-            alert('Login gagal');
-        }else{
-            alert('Login berhasil. Selamat datang '+cek_login.firstName);
+
+        // eslint-disable-next-line
+        if(cek_login.code=="4"){
+            alert(cek_login.message)
+        // eslint-disable-next-line
+        }else if(cek_login.code=="3"){
+            alert(cek_login.message)
+        // eslint-disable-next-line
+        }else if(cek_login.code=="0"){
+            alert('Welcome '+cek_login.name)
             auth.setUser(cek_login)
         }
-
-
     }
 
     const submitLogout = (event) =>{
@@ -49,7 +52,7 @@ function Login() {
         auth.user ? (
         <form onSubmit={submitLogout}>
             <p>
-                Selamat datang {auth.user.firstName}
+                Welcome {auth.user.name}
             </p>
             <Button type="submit" variant="contained" color="secondary">Logout</Button>
         </form>

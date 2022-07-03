@@ -22,7 +22,7 @@ function App() {
               user ? (
                 <RaidLog />
               ) : (
-                <RaidLog />
+                <></>
               )
           }
         </div>
