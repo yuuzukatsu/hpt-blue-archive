@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { TextField } from '@mui/material';
 
 import React, {useContext} from "react";
+import md5 from "md5"
 
 import { authContext } from '../App.js';
 //import { HashLink as Link } from "react-router-hash-link";
@@ -22,7 +23,7 @@ function Login() {
             },
             body: JSON.stringify({
                 "username": u,
-                "password": p
+                "password": md5(p)
             })
           })
           .then(res => res.json())
